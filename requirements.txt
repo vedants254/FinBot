@@ -1,0 +1,12 @@
+langchain_core
+langchain_community 
+langsmith
+streamlit 
+faiss-cpu
+python-dotenv
+langserve
+PyPDF2
+chromadb
+pdfplumber
+transformers
+fastembed
