@@ -5,7 +5,7 @@
 ![LangChain](https://img.shields.io/badge/LangChain-Latest-yellow)
 
  
-FinBoT is your intelligent financial analysis assistant built to help you understand complex accounting reports through natural language interaction. Powered by Retrieval-Augmented Generation (RAG) and LLMs, it extracts, interprets, and explains financial data with precision.
+FinBoT- Finance Bot is your intelligent financial analysis assistant built to help you understand complex accounting reports through natural language interaction. Powered by Retrieval-Augmented Generation (RAG) and LLMs, it extracts, interprets, and explains financial data with precision.
 
 ## Just upload your reports. FinBoT does the rest:
 1. Compare financials across companies—shareholder equity, revenue, expenses, and more
@@ -31,7 +31,7 @@ Whether you're a CFO, investor, analyst, or student, FinBoT makes financial repo
 ## Tech Stack
 
 - **Frontend**: Streamlit
-- **LLM**: Ollama (Llama2)
+- **LLM**: Ollama (Llama3.1)
 - **Embeddings**: FastEmbed (BAAI/bge-small-en-v1.5)
 - **Vector Store**: ChromaDB
 - **PDF Processing**: PDFPlumber
@@ -79,10 +79,10 @@ finbot/
    LANGCHAIN_API_KEY=your_langchain_api_key_here
    ```
 
-5. **Install Ollama and download Llama2**
+5. **Install Ollama and download Llama3.1 8B **
    ```bash
    # Install Ollama (visit https://ollama.ai for installation instructions)
-   ollama pull llama2
+   ollama pull llama3.1:8b
    ```
 
 ## Usage

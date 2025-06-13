@@ -93,7 +93,7 @@ def conv_retrieval_chain(doc):
     vectorstore = Chroma.from_documents(doc, embeddings)
     memory=ConversationBufferMemory(memory_key='chat_history',return_messages=True,output_key='answer')
 
-    llm=Ollama(model='llama2')
+    llm=Ollama(model='llama3.1:8b')
     prompt=ChatPromptTemplate.from_template(
         '''
         You are an intelligent Financial analyst.
