@@ -49,6 +49,7 @@ finbot/
 ├── .env                 # Environment variables
 ├── app.py               # Main Streamlit application
 ├── html_templates.py    # CSS and HTML templates for chat UI
+├── main.py              # Core application logic
 ├── requirements.txt     # Python dependencies
 └── README.md           # This file
 ```
@@ -75,6 +76,9 @@ finbot/
 4. **Set up environment variables**
    Create a `.env` file in the root directory:
    ```env
+   LANGCHAIN_TRACING_V2=true
+   LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
+   LANGCHAIN_PROJECT=your_project_name
    HF_TOKEN=your_huggingface_token_here
    LANGCHAIN_API_KEY=your_langchain_api_key_here
    ```
@@ -93,7 +97,7 @@ finbot/
    ```
 
 2. **Access the web interface**
-   Open your browser and navigate to `http://localhost:8502`
+   Open your browser and navigate to `http://localhost:8501`
 
 3. **Upload documents**
    - Use the sidebar to upload PDF financial reports
@@ -121,6 +125,8 @@ langsmith
 streamlit 
 faiss-cpu
 python-dotenv
+langserve
+PyPDF2
 chromadb
 pdfplumber
 transformers
