@@ -6,7 +6,7 @@ faiss-cpu
 python-dotenv
 langserve
 PyPDF2
-chromadb
+chromadb==0.4.22
 pdfplumber
 transformers
-fastembed
+fastembed  
