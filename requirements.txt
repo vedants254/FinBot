@@ -7,9 +7,9 @@ python-dotenv
 langserve
 PyPDF2
 pdfplumber
+torch 
 transformers
 fastembed
-torch
 accelerate
 bitsandbytes
 scipy
