@@ -93,7 +93,12 @@ def conv_retrieval_chain(doc):
     vectorstore = FAISS.from_documents(doc, embeddings)
     memory=ConversationBufferMemory(memory_key='chat_history',return_messages=True,output_key='answer')
 
-    llm=Ollama(model='llama3.1:8b')
+    model_name = "meta-llama/Llama-3.1-8B"
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForCausalLM.from_pretrained(model_name)
+    pipe = pipeline("text-generation", model=model, tokenizer=tokenizer, max_new_tokens=512)
+    llm = HuggingFacePipeline(pipeline=pipe)
+
     prompt=ChatPromptTemplate.from_template(
         '''
         You are an intelligent Financial analyst.
