@@ -1,6 +1,6 @@
 import sys
 import os
-
+import torch 
 # Fix for PyTorch/Streamlit compatibility issue
 try:
     import torch

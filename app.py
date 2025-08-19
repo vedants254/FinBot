@@ -6,7 +6,7 @@ try:
         torch._classes.__path__ = []
 except (ImportError, AttributeError):
     pass
-
+import torch 
 from main import load_documents, chunk_documents, conv_retrieval_chain
 import streamlit as st
 from langchain.schema import Document 
