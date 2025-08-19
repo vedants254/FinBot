@@ -13,7 +13,7 @@ except (ImportError, AttributeError):
 
 from langchain_community.embeddings import FastEmbedEmbeddings
 from langchain_community.llms import Ollama , HuggingFacePipeline 
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import Chroma, FAISS
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -89,7 +89,8 @@ def chunk_documents(docs):
 
 def conv_retrieval_chain(doc):
     embeddings = FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
-    vectorstore = Chroma.from_documents(doc, embeddings)
+    #vectorstore = Chroma.from_documents(doc, embeddings)
+    vectorstore = FAISS.from_documents(doc, embeddings)
     memory=ConversationBufferMemory(memory_key='chat_history',return_messages=True,output_key='answer')
 
     llm=Ollama(model='llama3.1:8b')
