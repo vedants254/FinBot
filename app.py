@@ -1,11 +1,4 @@
-# Fix for PyTorch/Streamlit compatibility issue
-try:
-    import torch
-    # Monkey patch to avoid the __path__ issue
-    if hasattr(torch, '_classes'):
-        torch._classes.__path__ = []
-except (ImportError, AttributeError):
-    pass
+
 import torch 
 from main import load_documents, chunk_documents, conv_retrieval_chain
 import streamlit as st

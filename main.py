@@ -12,14 +12,14 @@ except (ImportError, AttributeError):
 
 
 from langchain_community.embeddings import FastEmbedEmbeddings
-from langchain_community.llms import Ollama , HuggingFacePipeline 
+from langchain_community.llms import HuggingFacePipeline 
 from langchain_community.vectorstores import Chroma, FAISS
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.prompts import ChatPromptTemplate
 import streamlit as st
-from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline, BitsAndBytesConfig
 import pdfplumber
 from langchain.schema import Document 
 from html_templates import css, bot_template, user_template
@@ -95,7 +95,9 @@ def conv_retrieval_chain(doc):
 
     model_name = "meta-llama/Llama-3.1-8B"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name)
+    from transformers import BitsAndBytesConfig
+    quantization_config = BitsAndBytesConfig(load_in_4bit=True)
+    model = AutoModelForCausalLM.from_pretrained(model_name, quantization_config=quantization_config)
     pipe = pipeline("text-generation", model=model, tokenizer=tokenizer, max_new_tokens=512)
     llm = HuggingFacePipeline(pipeline=pipe)
 
