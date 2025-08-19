@@ -9,3 +9,6 @@ fastembed
 accelerate
 bitsandbytes
 scipy
+langchain_community 
+langserve
+langsmith 
